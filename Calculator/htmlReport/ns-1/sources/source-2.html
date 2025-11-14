@@ -1,0 +1,295 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CalculatorTest</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.example</a>
+</div>
+
+<h1>Coverage Summary for Class: CalculatorTest (org.example)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CalculatorTest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (37/37)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.example;
+&nbsp;
+&nbsp;import org.junit.Assert;
+&nbsp;import org.junit.Before;
+&nbsp;import org.junit.Test;
+&nbsp;
+<b class="fc">&nbsp;public class CalculatorTest {</b>
+&nbsp;
+&nbsp;    Calculator calculator;
+&nbsp;
+&nbsp;    @Before
+&nbsp;    public void setUp() {
+<b class="fc">&nbsp;        calculator = new Calculator();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Addition Unit Testing Coverage
+&nbsp;    /**
+&nbsp;     * test sum of 20 + 30 + 30 = 60
+&nbsp;     *  and 100 + 20 + 30  = 150
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void testSumOfTenPlusTwentyPlusThirtyBecomesSixtyAndHundredPlusTwentyPlusThirty(){
+<b class="fc">&nbsp;        double result = calculator.sum(new double[]{10,20,30});</b>
+<b class="fc">&nbsp;        Assert.assertEquals(60,result,0);</b>
+&nbsp;
+<b class="fc">&nbsp;        result = calculator.sum(new double[]{100,20,30});</b>
+<b class="fc">&nbsp;        Assert.assertEquals(150,result,0);</b>
+&nbsp;    }
+&nbsp;    /**
+&nbsp;     * To test sum of small numbers to be positive
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void testSumOfTwoPlusThreePlusSizEqualsTwelve(){
+<b class="fc">&nbsp;        double res = calculator.sum(new double[]{2,4,6});</b>
+<b class="fc">&nbsp;        Assert.assertEquals(12,res,0);</b>
+&nbsp;    }
+&nbsp;    /**
+&nbsp;     * To test sum of negative and higher positive value result in positive val
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void testSumOfNegativeFivePlusNegativeSixPlusTwelveToBeOne(){
+<b class="fc">&nbsp;        double res = calculator.sum(new double[]{-5,-6,12});</b>
+<b class="fc">&nbsp;        Assert.assertEquals(1,res,0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Subtraction Unit Testing Coverage
+&nbsp;    /**
+&nbsp;     * the first digit has to be positive and higher to subtract from others
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void subtract(){
+<b class="fc">&nbsp;        double result = calculator.subtract(new double[]{10,20,5,1,6});</b>
+<b class="fc">&nbsp;        Assert.assertEquals(-22,result,0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Multiplication Unit Testing Coverage
+&nbsp;    /**
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void multiplication(){
+<b class="fc">&nbsp;        double result = calculator.Multiplication(new double[]{1,2,3,4,5});</b>
+<b class="fc">&nbsp;        Assert.assertEquals(120, result,0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Division Unit Testing Coverage
+&nbsp;    /**
+&nbsp;     * Test division of two positive numbers result in positive value.
+&nbsp;     *              10 / 2 = 5
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void divide() {
+<b class="fc">&nbsp;        double result = calculator.divide(10, 2);</b>
+<b class="fc">&nbsp;        Assert.assertEquals(5, result, 0);</b>
+&nbsp;    }
+&nbsp;    /**
+&nbsp;     * to test division by zero not possible
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void TestDivisionByZero(){
+<b class="fc">&nbsp;        Assert.assertEquals(Double.MIN_VALUE,calculator.divide(5,0),0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // SquareRoot Unit Testing Coverage
+&nbsp;    /**
+&nbsp;     * To test square root of a 25 to be 5
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void testSquareRootOfTwentyFive(){
+<b class="fc">&nbsp;        double result = calculator.squareRoot(25);</b>
+<b class="fc">&nbsp;        Assert.assertEquals(5,result,0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * To test square root of a 37 to be 6.082762530298219
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void testSquareRootOfThirtySeven(){
+<b class="fc">&nbsp;        double result = calculator.squareRoot(37);</b>
+<b class="fc">&nbsp;        Assert.assertEquals(6.082762530298219,result,0);</b>
+&nbsp;    }
+&nbsp;    /**
+&nbsp;     * test to find that negative values cannot be found which are imaginary numbers
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void squareRootOfNegativeTwentyFive(){
+<b class="fc">&nbsp;        Assert.assertEquals(Double.MIN_VALUE,calculator.squareRoot(-25),0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Modulo Unit Testing Coverage
+&nbsp;    /**
+&nbsp;     * To test modulo of two positive no 
+&nbsp;     */
+&nbsp;    @Test
+<b class="fc">&nbsp;    public void moduloOfTwoNum(){</b>
+<b class="fc">&nbsp;        double result = calculator.moduloOfTwoNum(5,2);</b>
+&nbsp;        Assert.assertEquals(1,result,0);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * To test Modulo of two negative numbers to be positive by converting them to positive number
+&nbsp;     */
+&nbsp;    @Test
+<b class="fc">&nbsp;    public void moduloOfNegativeTwentyAndNegativeFive(){</b>
+&nbsp;        Assert.assertEquals(0,calculator.moduloOfTwoNum(-20,-5),0);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * test the Modulo of positive numbers to be positive
+&nbsp;     */
+&nbsp;    @Test
+<b class="fc">&nbsp;    public void moduloOfNegativeSixtySixAndFive(){</b>
+&nbsp;        Assert.assertEquals(1,calculator.moduloOfTwoNum(66,5),0);
+&nbsp;     }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Modulo of number by zero is not possible
+&nbsp;     */
+&nbsp;    @Test
+<b class="fc">&nbsp;    public void moduloOfTwentyAndZero(){</b>
+<b class="fc">&nbsp;            Assert.assertEquals(Double.MIN_VALUE, calculator.moduloOfTwoNum(20,0),0);</b>
+&nbsp;        Assert.assertEquals(Double.MIN_VALUE, calculator.moduloOfTwoNum(-20,0),0);
+&nbsp;    }
+&nbsp;
+&nbsp;    // Averages Unit Testing Coverage
+&nbsp;    /**
+&nbsp;     * To test average of positive values
+&nbsp;     * ( 1 + 2 + 3 + 4 + 5) / 5 = 15 / 5 = 3
+&nbsp;     */
+&nbsp;    @Test
+<b class="fc">&nbsp;    public void testAverageOfFirstFiveNaturalNumbers(){</b>
+<b class="fc">&nbsp;        double result = calculator.Average(new double[]{1,2,3,4,5});</b>
+&nbsp;        Assert.assertEquals(3,result,0);
+&nbsp;    }
+&nbsp;    /**
+&nbsp;     * To test average of positive values
+&nbsp;     * ( - 1 - 2 - 3 - 4 - 5) / 5 = -15 / 5 = -3
+&nbsp;     */
+&nbsp;    @Test
+<b class="fc">&nbsp;    public void testAverageOfFirstFiveNegativeIntegerNumbers(){</b>
+<b class="fc">&nbsp;        double result = calculator.Average(new double[]{-1, -2, -3, -4, -5});</b>
+&nbsp;        Assert.assertEquals(-3,result,0);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * To test weather the average function throws an error when no number is passed.
+&nbsp;     */
+&nbsp;    @Test
+<b class="fc">&nbsp;    public void AverageEmptyArray(){</b>
+&nbsp;        Assert.assertThrows(IllegalArgumentException.class,
+<b class="fc">&nbsp;                ()-&gt;{</b>
+&nbsp;            calculator.Average(new double[]{});
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+&nbsp;    // Factorial Unit Testing Coverage
+&nbsp;    /**
+&nbsp;     * Test Factorial of Natural Number 5 to return 120
+&nbsp;     */
+&nbsp;    @Test
+<b class="fc">&nbsp;    public void testFactorialOfPositiveFive(){</b>
+<b class="fc">&nbsp;        double result = calculator.factorial(5);</b>
+&nbsp;        Assert.assertEquals(120,result,0);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Test the factorial of negative number not possible
+&nbsp;     */
+&nbsp;    @Test
+<b class="fc">&nbsp;    public void testFactorialOfNegativeTwentySix(){</b>
+&nbsp;        Assert.assertEquals(0,calculator.factorial(-26));
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-10-06 18:30</div>
+</div>
+</body>
+</html>
